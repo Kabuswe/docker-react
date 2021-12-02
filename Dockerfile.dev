@@ -1,0 +1,12 @@
+# Specify base image
+FROM node:14.17-alpine
+# Specify working directory
+WORKDIR '/app'
+# Copy package.json from host machine
+COPY package.json .
+# Install dependencies
+RUN npm install
+# Copy project files from host machine
+COPY . .
+# Specify default container command
+CMD ["npm", "run", "start"]
